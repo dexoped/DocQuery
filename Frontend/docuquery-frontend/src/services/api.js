@@ -1,13 +1,13 @@
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "http://localhost:5001/api";
 
 export const uploadFile = async (file) => {
   const formData = new FormData(); //"create new object for formdata"
   formData.append("file", file); //"add your file to the object"
 
-  const res = await fetch(`${BASE_URL}/upload`, {
-    method: "POST", //"sends HTTP POst reequest"
-    body: formData,
-  });
+  const res = await fetch("http://localhost:5001/api/upload", {
+  method: "POST",
+  body: formData,
+});
 
   return res.json(); //"converting backend response to json object"
 };

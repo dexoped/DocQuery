@@ -1,4 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=Sora:wght@300;400;500;600&display=swap');
+
+/* ── Tokens ──────────────────────────────────────────────────────────────── */
+:root {
+  --bg:           #F5F0E8;
+  --surface:      #FFFFFF;
+  --accent:       #BF5030;
+  --accent-muted: #F7EDE7;
+  --text:         #1C1714;
+  --text-2:       #7A736C;
+  --border:       #E6DFCF;
+  --border-2:     #D4CABC;
+  --radius:       14px;
+  --shadow:       0 1px 3px rgba(28,23,20,.06), 0 4px 18px rgba(28,23,20,.05);
+  --shadow-up:    0 2px 8px rgba(28,23,20,.09), 0 8px 28px rgba(28,23,20,.07);
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  font-family: Arial;
-  background: #f5f5f5;
+  background: var(--bg);
+  font-family: 'Sora', sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Root & Container ────────────────────────────────────────────────────── */
+.dq-root {
+  min-height: 100vh;
+  padding: 52px 20px 80px;
+}
+
+.dq-container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.dq-header {
+  margin-bottom: 52px;
+  animation: dqUp .5s ease both;
+}
+
+.dq-eyebrow {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-muted);
+  padding: 5px 13px;
+  border-radius: 100px;
+  margin-bottom: 18px;
+}
+
+.dq-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(46px, 10vw, 76px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.025em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.dq-subtitle {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-2);
+  line-height: 1.65;
+}
+
+/* ── Steps ───────────────────────────────────────────────────────────────── */
+.dq-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dq-step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 28px 26px;
+  box-shadow: var(--shadow);
+  transition: box-shadow .22s ease, transform .22s ease;
+}
+
+.dq-step:hover {
+  box-shadow: var(--shadow-up);
+  transform: translateY(-2px);
+}
+
+.dq-step-1 { animation: dqUp .5s .08s ease both; }
+.dq-step-2 { animation: dqUp .5s .16s ease both; }
+.dq-step-3 { animation: dqUp .5s .24s ease both; }
+
+.dq-step-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dq-step-num {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+  opacity: .8;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.dq-step-title {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.dq-step-hint {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--text-2);
+}
+
+.dq-step-body {
+  /* children from Upload / Ask / Result flow here */
+}
+
+/* Result card gets a warm tint when populated */
+.dq-result-body:not(:empty) {
+  background: #FDFAF6;
+  border-radius: 10px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  min-height: 72px;
+}
+
+/* ── Shared component styles (applied to children via cascade) ─────────────
+   Your Upload, Ask, Result components will inherit these.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Text inputs & textareas */
+.dq-step-body input[type="text"],
+.dq-step-body input[type="search"],
+.dq-step-body textarea {
+  width: 100%;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+  border: 1.5px solid var(--border-2);
+  border-radius: 9px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color .18s, box-shadow .18s;
+  resize: vertical;
+}
+
+.dq-step-body input[type="text"]::placeholder,
+.dq-step-body textarea::placeholder {
+  color: var(--text-2);
+  font-weight: 300;
+}
+
+.dq-step-body input[type="text"]:focus,
+.dq-step-body textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(191,80,48,.1);
+}
+
+/* Buttons */
+.dq-step-body button {
+  font-family: 'Sora', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: .01em;
+  cursor: pointer;
+  border-radius: 9px;
+  padding: 11px 20px;
+  transition: all .18s ease;
+  outline: none;
+}
+
+/* Primary button — give your submit button class="dq-btn-primary" */
+.dq-step-body button[type="submit"],
+.dq-step-body .dq-btn-primary {
+  background: var(--accent);
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 2px 8px rgba(191,80,48,.25);
+}
+
+.dq-step-body button[type="submit"]:hover,
+.dq-step-body .dq-btn-primary:hover {
+  background: #A8432A;
+  box-shadow: 0 4px 14px rgba(191,80,48,.35);
+  transform: translateY(-1px);
+}
+
+.dq-step-body button[type="submit"]:active,
+.dq-step-body .dq-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(191,80,48,.2);
+}
+
+/* Secondary/ghost buttons */
+.dq-step-body button:not([type="submit"]):not(.dq-btn-primary) {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--border-2);
+}
+
+.dq-step-body button:not([type="submit"]):not(.dq-btn-primary):hover {
+  border-color: var(--accent);
+  background: var(--accent-muted);
+}
+
+/* File upload zones */
+.dq-step-body input[type="file"] {
+  display: block;
+  width: 100%;
+  font-family: 'Sora', sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--text-2);
+  background: var(--bg);
+  border: 1.5px dashed var(--border-2);
+  border-radius: 10px;
+  padding: 18px 16px;
+  cursor: pointer;
+  transition: border-color .18s, background .18s;
+}
+
+.dq-step-body input[type="file"]:hover {
+  border-color: var(--accent);
+  background: var(--accent-muted);
+}
+
+/* Paragraphs / result text */
+.dq-step-body p {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--text);
+  font-weight: 300;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+.dq-footer {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-2);
+  letter-spacing: .04em;
+  animation: dqUp .5s .34s ease both;
+}
+
+/* ── Animations ──────────────────────────────────────────────────────────── */
+@keyframes dqUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .dq-root      { padding: 36px 16px 60px; }
+  .dq-header    { margin-bottom: 36px; }
+  .dq-step      { padding: 22px 18px 20px; }
+  .dq-step-num  { font-size: 24px; }
+  .dq-step-title{ font-size: 17px; }
 }
