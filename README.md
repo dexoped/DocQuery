@@ -382,7 +382,8 @@ After initial setup and model downloads, the system works fully offline using:
 - Dockerized infrastructure
 
 
+# AUTHOR
+built by:-
+## Dhruv Dogra
 
 
-#AUTHOR
-built by ##Dhruv Dogra
