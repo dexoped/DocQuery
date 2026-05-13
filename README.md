@@ -1,10 +1,4 @@
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-
-![ChromaDB](https://img.shields.io/badge/ChromaDB-5A67D8?style=for-the-badge)
-
-![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)  ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)  ![ChromaDB](https://img.shields.io/badge/ChromaDB-5A67D8?style=for-the-badge)  ![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge)
 
 # DocQuery — AI-Powered Semantic Document Retrieval System
 
