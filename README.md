@@ -66,19 +66,57 @@ E --> H[Grounded Response]
 ```
 
 # Project Structure
+```text
 DOCQUERY/
 │
 ├── Backend/
+│   │
 │   ├── src/
+│   │   │
 │   │   ├── controllers/
+│   │   │   ├── uploadController.js
+│   │   │   └── askController.js
+│   │   │
 │   │   ├── routes/
+│   │   │   ├── uploadRoutes.js
+│   │   │   └── askRoutes.js
+│   │   │
 │   │   ├── services/
+│   │   │   ├── pdfService.js
+│   │   │   ├── chunkService.js
+│   │   │   ├── embeddingService.js
+│   │   │   ├── chromaService.js
+│   │   │   ├── retrievalService.js
+│   │   │   ├── similarityService.js
+│   │   │   └── llmService.js
+│   │   │
 │   │   ├── store/
-│   │   └── utils/
+│   │   │   └── chunkStore.js
+│   │   │
+│   │   └── uploads/
 │   │
 │   ├── Dockerfile
 │   ├── compose.yaml
+│   ├── package.json
+│   ├── .dockerignore
+│   ├── .gitignore
 │   └── server.js
 │
-└── Frontend/
-    └── docuquery-frontend/
+├── Frontend/
+│   │
+│   └── docuquery-frontend/
+│       │
+│       ├── src/
+│       │   ├── components/
+│       │   ├── pages/
+│       │   ├── services/
+│       │   └── App.jsx
+│       │
+│       ├── public/
+│       ├── Dockerfile
+│       ├── package.json
+│       ├── vite.config.js
+│       └── .dockerignore
+│
+└── README.md
+```
