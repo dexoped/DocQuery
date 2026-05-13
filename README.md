@@ -380,3 +380,9 @@ After initial setup and model downloads, the system works fully offline using:
 - Local embeddings
 - Persistent vector storage
 - Dockerized infrastructure
+
+
+
+
+#AUTHOR
+built by ##Dhruv Dogra
