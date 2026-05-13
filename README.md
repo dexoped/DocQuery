@@ -22,6 +22,15 @@ The system uses vector embeddings, metadata-aware retrieval, persistent vector s
 - Full-stack container orchestration using Docker Compose
 
 ---
+# Why This Project?
+
+Most document chat systems rely on cloud APIs and external inference providers.
+
+DocQuery was designed as a fully local and offline-capable Retrieval-Augmented Generation (RAG) system using local embeddings, local LLM inference, and persistent vector storage.
+
+The project focuses on semantic retrieval infrastructure, metadata-aware querying, and containerized AI backend architecture.
+
+
 
 # Tech Stack
 
