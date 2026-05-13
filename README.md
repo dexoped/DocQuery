@@ -144,3 +144,239 @@ DOCQUERY/
 │
 └── README.md
 ```
+# Setup & Start Guide
+
+This project supports two setup methods:
+
+1. Docker Compose Setup (Recommended)
+2. Manual Local Setup
+
+---
+
+# Option 1 — Docker Compose Setup (Recommended)
+
+## Prerequisites
+
+Make sure the following are installed:
+
+- Docker Desktop
+- Ollama
+- Node.js 23+ (optional for local development)
+
+---
+
+# Step 1 — Clone Repository
+
+```bash
+git clone <your-repository-url>
+cd DOCQUERY
+```
+
+---
+
+# Step 2 — Install Ollama
+
+Download and install Ollama:
+
+https://ollama.com
+
+---
+
+# Step 3 — Pull Required Models
+
+```bash
+ollama pull phi3:mini
+ollama pull nomic-embed-text
+```
+
+---
+
+# Step 4 — Start Ollama
+
+```bash
+ollama serve
+```
+
+Keep Ollama running in the background.
+
+---
+
+# Step 5 — Start Full Containerized Stack
+
+Open a new terminal.
+
+Navigate to Backend directory:
+
+```bash
+cd Backend
+```
+
+Run Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+---
+
+# Running Services
+
+| Service | URL |
+|---------|-----|
+| Frontend | http://localhost:5173 |
+| Backend API | http://localhost:5001 |
+| ChromaDB | http://localhost:8000 |
+
+---
+
+# Stop Containers
+
+Inside Backend directory:
+
+```bash
+docker compose down
+```
+
+---
+
+# Option 2 — Manual Local Setup
+
+## Prerequisites
+
+Install:
+
+- Node.js 23+
+- Ollama
+- ChromaDB
+- npm
+
+---
+
+# Step 1 — Clone Repository
+
+```bash
+git clone <your-repository-url>
+cd DOCQUERY
+```
+
+---
+
+# Step 2 — Backend Setup
+
+Navigate to backend:
+
+```bash
+cd Backend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+# Step 3 — Frontend Setup
+
+Open a new terminal.
+
+Navigate to frontend:
+
+```bash
+cd Frontend/docuquery-frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+# Step 4 — Install Ollama
+
+Download and install:
+
+https://ollama.com
+
+---
+
+# Step 5 — Pull Required Models
+
+```bash
+ollama pull phi3:mini
+ollama pull nomic-embed-text
+```
+
+---
+
+# Step 6 — Start Ollama
+
+```bash
+ollama serve
+```
+
+---
+
+# Step 7 — Start ChromaDB
+
+Using Docker:
+
+```bash
+docker run -p 8000:8000 chromadb/chroma
+```
+
+---
+
+# Step 8 — Start Backend Server
+
+Inside Backend directory:
+
+```bash
+node server.js
+```
+
+---
+
+# Step 9 — Start Frontend
+
+Inside frontend directory:
+
+```bash
+npm run dev
+```
+
+---
+
+# Manual Setup Service URLs
+
+| Service | URL |
+|---------|-----|
+| Frontend | http://localhost:5173 |
+| Backend API | http://localhost:5001 |
+| ChromaDB | http://localhost:8000 |
+
+---
+
+# Example Workflow
+
+1. Upload a PDF document
+2. Extract and chunk text
+3. Generate embeddings
+4. Store vectors in ChromaDB
+5. Ask semantic questions
+6. Retrieve relevant chunks
+7. Generate grounded AI responses
+
+---
+
+# Offline Capability
+
+After initial setup and model downloads, the system works fully offline using:
+
+- Local LLM inference
+- Local embeddings
+- Persistent vector storage
+- Dockerized infrastructure
