@@ -8,6 +8,7 @@ function Upload() {
   const handleUpload = async () => {
     if (!file) {
       setStatus("Select a file first");
+      
       return;
     }
 
@@ -16,6 +17,7 @@ function Upload() {
     try {
       const data = await uploadFile(file);
       setStatus(data.message);
+      console.log(data.totalChunks); 
     } catch (err) {
       setStatus("Upload failed");
     }
