@@ -54,6 +54,17 @@ The project focuses on semantic retrieval infrastructure, metadata-aware queryin
 - Docker
 - Docker Compose
 
+
+## Core Concepts & Algorithms
+
+- Cosine similarity-based semantic retrieval
+- Vector embedding search
+- Retrieval-Augmented Generation (RAG)
+- Sliding-window chunking with overlap
+- Metadata-aware filtered retrieval
+- Persistent vector indexing using ChromaDB
+- Local LLM inference pipeline
+
 ---
 
 # System Architecture
