@@ -1,10 +1,13 @@
 const { ChromaClient } = require("chromadb");
 
 const client = new ChromaClient({
-  path: "http://localhost:8000",
+  host: "chromadb",
+  port: 8000,
+  ssl: false,
 });
 
-const COLLECTION_NAME = "research_documents";
+const COLLECTION_NAME =
+  "research_documents";
 
 let collection;
 
@@ -15,7 +18,11 @@ exports.initChroma = async () => {
       name: COLLECTION_NAME,
     });
 
-  console.log("Chroma collection ready");
+  console.log(
+    "Chroma collection ready"
+  );
 };
 
-exports.getCollection = () => collection;
+exports.getCollection = () => {
+  return collection;
+};
