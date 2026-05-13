@@ -6,7 +6,7 @@ DocQuery is a fully local Retrieval-Augmented Generation (RAG) system that allow
 
 The system uses vector embeddings, metadata-aware retrieval, persistent vector storage, and local language models to provide context-grounded answers from uploaded documents.
 
-### PS RUNS WITHOUT INTERNET
+### PS RUNS OFFLINE
 
 ---
 
